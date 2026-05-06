@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Recovery Solutions | Transformer l'E-Waste en Or</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Work+Sans:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --forest: #2C5F2D;
+            --gold: #D4AF37;
+            --charcoal: #1A1A1A;
+            --cream: #F5F5F5;
+            --navy: #1E2761;
+            --accent-red: #990011;
+        }
+        
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--charcoal);
+            background: var(--cream);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--forest) 0%, var(--navy) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 1000px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+            line-height: 1.1;
+        }
+        
+        .hero .tagline {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: white;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--charcoal);
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+            background: #E5C158;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 5rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: -80px auto 0;
+            position: relative;
+            z-index: 3;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--charcoal);
+            font-weight: 400;
+        }
+        
+        /* Problem Section */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 2rem;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 2.5rem;
+            border-left: 5px solid var(--accent-red);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .problem-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .problem-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .problem-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+        
+        /* Solution Section */
+        .solution {
+            background: linear-gradient(to bottom, var(--cream) 0%, white 100%);
+        }
+        
+        .solution-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .solution-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .solution-visual {
+            position: relative;
+            padding: 3rem;
+            background: var(--forest);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(44, 95, 45, 0.3);
+        }
+        
+        .solution-visual::before {
+            content: '🧬';
+            font-size: 15rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.2;
+        }
+        
+        .process-step {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-step .step-number {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: var(--gold);
+            color: var(--charcoal);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: 700;
+            margin-right: 1rem;
+        }
+        
+        /* Comparison Section */
+        .comparison {
+            background: var(--navy);
+            color: white;
+            padding: 6rem 2rem;
+        }
+        
+        .comparison .section-title {
+            color: var(--gold);
+            text-align: center;
+        }
+        
+        .comparison-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .comparison-card {
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .comparison-card.waste {
+            background: linear-gradient(135deg, var(--gold) 0%, #E5C158 100%);
+            color: var(--charcoal);
+        }
+        
+        .comparison-card.ore {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .comparison-card .big-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            margin: 1rem 0;
+        }
+        
+        .comparison-card .label {
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+        
+        /* Success Stories */
+        .success {
+            background: white;
+        }
+        
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .success-card {
+            background: linear-gradient(to bottom, var(--cream) 0%, white 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-top: 4px solid var(--gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .success-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .success-card .flag {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .success-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--forest);
+            margin-bottom: 1rem;
+        }
+        
+        .success-card .metric {
+            background: var(--gold);
+            color: var(--charcoal);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 0.5rem 0;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, var(--forest) 0%, var(--navy) 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .final-cta .urgency {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item .icon {
+            font-size: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--cream);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        footer .team {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        footer .team strong {
+            color: var(--gold);
+        }
+        
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>💎 NOS POUBELLES SONT<br>DES MINES D'OR</h1>
+            <p class="tagline">Transformons les déchets électroniques en richesse durable</p>
+            <a href="#contact" class="cta-button">Démarrons Ensemble</a>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-number">62M</div>
+            <div class="stat-label">Tonnes de e-waste<br>produits en 2024</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">100×</div>
+            <div class="stat-label">Plus riche que<br>les mines naturelles</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">91 Md€</div>
+            <div class="stat-label">Valeur des métaux<br>dans l'e-waste 2022</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">22%</div>
+            <div class="stat-label">Seulement recyclés<br>correctement</div>
+        </div>
+    </div>
+
+    <!-- Problem Section -->
+    <section class="section problem">
+        <h2 class="section-title">Le Problème en Tunisie</h2>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="icon">🌍</div>
+                <h3>60 000 tonnes/an</h3>
+                <p>De déchets électroniques générés chaque année en Tunisie, sans filière de recyclage organisée.</p>
+            </div>
+            <div class="problem-card">
+                <div class="icon">☠️</div>
+                <h3>Pollution toxique</h3>
+                <p>Plomb, mercure, cadmium contaminent nos sols et nappes phréatiques, menaçant la santé publique.</p>
+            </div>
+            <div class="problem-card">
+                <div class="icon">💸</div>
+                <h3>Richesse perdue</h3>
+                <p>Des millions d'euros en métaux précieux finissent dans les décharges au lieu d'être valorisés.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section solution">
+        <h2 class="section-title">Notre Solution : Biolixiviation</h2>
+        <div class="solution-showcase">
+            <div class="solution-visual">
+                <div class="process-step">
+                    <span class="step-number">1</span>
+                    <strong>Broyage</strong> des cartes électroniques
+                </div>
+                <div class="process-step">
+                    <span class="step-number">2</span>
+                    <strong>Bioréacteurs</strong> avec bactéries spécialisées
+                </div>
+                <div class="process-step">
+                    <span class="step-number">3</span>
+                    <strong>Extraction</strong> métaux sous forme soluble
+                </div>
+                <div class="process-step">
+                    <span class="step-number">4</span>
+                    <strong>Récupération</strong> or, cuivre, argent, palladium
+                </div>
+            </div>
+            <div>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--forest); margin-bottom: 1.5rem;">
+                    🦠 Les Bactéries au Service de l'Économie Verte
+                </h3>
+                <p style="margin-bottom: 1rem; font-size: 1.1rem;">
+                    Nous utilisons des micro-organismes naturels (<em>Acidithiobacillus</em>, <em>Chromobacterium</em>) 
+                    qui "digèrent" les métaux des circuits imprimés.
+                </p>
+                <p style="margin-bottom: 1rem; font-size: 1.1rem;">
+                    <strong>Hydrométallurgie verte :</strong> glycine et acide citrique au lieu du cyanure toxique. 
+                    Température ambiante, zéro rejet polluant.
+                </p>
+                <div style="background: #E8F5E9; padding: 1.5rem; border-radius: 10px; margin-top: 2rem;">
+                    <p style="font-size: 1.2rem; color: var(--forest); font-weight: 600;">
+                        ✅ 10× moins d'eau qu'une mine<br>
+                        ✅ 87% moins de CO₂<br>
+                        ✅ Efficacité 80-95%
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <h2 class="section-title">Le Paradoxe Choc</h2>
+        <div class="comparison-cards">
+            <div class="comparison-card waste">
+                <div class="icon">📱</div>
+                <div class="label">1 TONNE DE TÉLÉPHONES</div>
+                <div class="big-number">300g</div>
+                <div class="label">d'or récupérable</div>
+            </div>
+            <div class="comparison-card ore">
+                <div class="icon">⛏️</div>
+                <div class="label">1 TONNE DE MINERAI</div>
+                <div class="big-number">3g</div>
+                <div class="label">d'or récupérable</div>
+            </div>
+        </div>
+        <p style="text-align: center; font-size: 1.8rem; margin-top: 3rem; color: var(--gold); font-weight: 600;">
+            Les poubelles sont 100× plus riches que les mines !
+        </p>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="section success">
+        <h2 class="section-title">Ils L'ont Fait, Nous Pouvons Le Faire</h2>
+        <div class="success-grid">
+            <div class="success-card">
+                <div class="flag">🇳🇿</div>
+                <h3>Mint Innovation</h3>
+                <p>Nouvelle-Zélande & Australie</p>
+                <div class="metric">0,5 tonne or/an</div>
+                <div class="metric">800 tonnes cuivre/an</div>
+                <div class="metric">Levée 14 M$ USD</div>
+            </div>
+            <div class="success-card">
+                <div class="flag">🇬🇧</div>
+                <h3>The Royal Mint</h3>
+                <p>Royaume-Uni</p>
+                <div class="metric">Usine 3 700 m²</div>
+                <div class="metric">Pureté 99%+</div>
+                <div class="metric">Collection joaillerie</div>
+            </div>
+            <div class="success-card">
+                <div class="flag">🇨🇳</div>
+                <h3>Leader Chinois</h3>
+                <p>Méthode la plus rentable</p>
+                <div class="metric">Coût: $1,455/once</div>
+                <div class="metric">Marché: $4,472/once</div>
+                <div class="metric">Profit × 3</div>
+            </div>
+            <div class="success-card">
+                <div class="flag">🇮🇳</div>
+                <h3>Attero Recycling</h3>
+                <p>Inde</p>
+                <div class="metric">Modèle social</div>
+                <div class="metric">Emplois verts</div>
+                <div class="metric">Impact communautaire</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="contact">
+        <h2>⚡ Agissons Maintenant</h2>
+        <p class="urgency">
+            Chaque jour, la Tunisie perd 164 tonnes de e-waste<br>
+            ~50 kg d'or • 1,4 M€ de valeur
+        </p>
+        <a href="mailto:contact@biorecovery-tunisia.com" class="cta-button">Contactez-Nous</a>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="icon">📧</span>
+                contact@biorecovery-tunisia.com
+            </div>
+            <div class="contact-item">
+                <span class="icon">📱</span>
+                +216 XX XXX XXX
+            </div>
+            <div class="contact-item">
+                <span class="icon">📍</span>
+                Sousse, Tunisie
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="team">
+            Présenté par: <strong>Adam Dimassi</strong> • <strong>Amel Belkacem</strong> • <strong>Hassen Ben Salah</strong>
+        </div>
+        <p>&copy; 2026 Bio-Recovery Solutions | Transformons l'e-waste en richesse durable</p>
+        <p style="margin-top: 1rem; opacity: 0.7;">
+            "Nos poubelles sont des mines d'or — à nous de creuser intelligemment."
+        </p>
+    </footer>
+
+    <script>
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section, .stats, .comparison').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
